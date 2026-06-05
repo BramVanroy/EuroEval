@@ -28,6 +28,15 @@ DBRD_CONFIG = DatasetConfig(
     languages=[DUTCH],
     labels=["negative", "positive"],
 )
+DBRD_FULL_CONFIG = DatasetConfig(
+    name="dbrd-full",
+    pretty_name="DBRD Full",
+    source="BramVanroy/euroeval-dbrd-nl-full",
+    task=SENT,
+    languages=[DUTCH],
+    labels=["negative", "positive"],
+    unofficial=True,
+)
 
 SCALA_NL_CONFIG = DatasetConfig(
     name="scala-nl",
@@ -43,6 +52,14 @@ CONLL_NL_CONFIG = DatasetConfig(
     source="EuroEval/conll-nl-mini",
     task=NER,
     languages=[DUTCH],
+)
+CONLL_NL_FULL_CONFIG = DatasetConfig(
+    name="conll-nl-full",
+    pretty_name="CoNLL-nl Full",
+    source="BramVanroy/euroeval-conll-nl-full",
+    task=NER,
+    languages=[DUTCH],
+    unofficial=True,
 )
 
 SQUAD_NL_CONFIG = DatasetConfig(
@@ -61,12 +78,29 @@ WIKI_LINGUA_NL_CONFIG = DatasetConfig(
     languages=[DUTCH],
 )
 
+WIKI_LINGUA_NL_FULL_CONFIG = DatasetConfig(
+    name="wiki-lingua-nl-full",
+    pretty_name="WikiLingua-nl Full",
+    source="BramVanroy/euroeval-wiki-lingua-nl-full",
+    task=SUMM,
+    languages=[DUTCH],
+    unofficial=True,
+)
+
 MMLU_NL_CONFIG = DatasetConfig(
     name="mmlu-nl",
     pretty_name="MMLU-nl",
     source="EuroEval/mmlu-nl-mini",
     task=KNOW,
     languages=[DUTCH],
+)
+MMLU_NL_FULL_CONFIG = DatasetConfig(
+    name="mmlu-nl-full",
+    pretty_name="MMLU-nl Full",
+    source="BramVanroy/euroeval-mmlu-nl-full",
+    task=KNOW,
+    languages=[DUTCH],
+    unofficial=True,
 )
 
 HELLASWAG_NL_CONFIG = DatasetConfig(
