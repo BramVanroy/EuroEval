@@ -14,7 +14,7 @@ def main(
     pfcache = pfout.parent / "cache" if cache_dir is None else Path(cache_dir)
     pfcache.mkdir(parents=True, exist_ok=True)
 
-    benchmarker = Benchmarker(cache_dir=str(pfcache))
+    benchmarker = Benchmarker(cache_dir=str(pfcache), verbose=True)
     for result in benchmarker.benchmark(
         model=model,
         dataset=dataset,
