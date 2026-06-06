@@ -32,6 +32,7 @@ DBRD_FULL_CONFIG = DatasetConfig(
     name="dbrd-full",
     pretty_name="DBRD Full",
     source="BramVanroy/euroeval-dbrd-nl-full",
+    val_split=None,
     task=SENT,
     languages=[DUTCH],
     labels=["negative", "positive"],
@@ -68,6 +69,14 @@ SQUAD_NL_CONFIG = DatasetConfig(
     source="EuroEval/squad-nl-v2-mini",
     task=RC,
     languages=[DUTCH],
+)
+SQUAD_NL_FULL_CONFIG = DatasetConfig(
+    name="squad-nl-full",
+    pretty_name="SQuAD-nl Full",
+    source="BramVanroy/euroeval-squad-nl-full",
+    task=RC,
+    languages=[DUTCH],
+    unofficial=True,
 )
 
 WIKI_LINGUA_NL_CONFIG = DatasetConfig(

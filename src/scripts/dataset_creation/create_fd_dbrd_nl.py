@@ -59,10 +59,16 @@ def main() -> None:
         "text_len <= @max_num_chars"
     )
 
+    train_ds = Dataset.from_pandas(train_df, split=Split.TRAIN)
+    # empty validation set, with the same columns as the train/test sets
+    val_df = pd.DataFrame(columns=train_df.columns)
+    val_ds = Dataset.from_pandas(val_df, split=Split.VALIDATION, features=train_ds.features)
+
     # Collect datasets in a dataset dictionary
     dataset = DatasetDict(
         {
-            "train": Dataset.from_pandas(train_df, split=Split.TRAIN),
+            "train": train_ds,
+            "val": val_ds,
             "test": Dataset.from_pandas(test_df, split=Split.TEST),
         }
     )
