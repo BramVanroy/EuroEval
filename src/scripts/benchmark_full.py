@@ -1,3 +1,4 @@
+"""Custom script so I can change output file/directory in SLURM/container context. CLI has no option for that."""
 from pathlib import Path
 import json
 
@@ -46,24 +47,14 @@ def main(
         print(f"Results for model '{model}' on dataset '{dataset}' already exist in '{pfout}'. Use --force to overwrite.")
         return
 
-    benchmarker = Benchmarker(cache_dir=str(pfcache), verbose=True)
+    benchmarker = Benchmarker(cache_dir=str(pfcache), verbose=True, evaluate_test_split=True)
     for result in benchmarker.benchmark(
         model=model,
         dataset=dataset,
         save_results=False,
+        evaluate_test_split=True,
     ):
         result.append_to_results(pfout)
-
-
-
-    benchmarker = Benchmarker(cache_dir=str(pfcache), verbose=True)
-    for result in benchmarker.benchmark(
-        model=model,
-        dataset=dataset,
-        save_results=False,
-    ):
-        result.append_to_results(pfout)
-
 
 if __name__ == "__main__":
     import argparse
